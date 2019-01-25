@@ -19,6 +19,6 @@ Elasticsearch可视化工具head和kibana选其一，可以直接在上面创建
 
 一开始自动补全功能可能体现不出来，是因为Elasticsearch上没数据，
 
-需要管理员登录到 http://localhost:8080/admin/center，帐号密码都是admin
+需要管理员登录到 http://localhost:8080/admin/center 帐号密码都是admin
 
 然后在房源管理上重新发布房源，这样数据才会上传到Elasticsearch
