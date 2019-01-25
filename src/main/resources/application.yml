@@ -1,0 +1,67 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/xunwu?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 1997
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 3000
+    jedis:
+      pool:
+        min-idle: 1
+  thymeleaf:
+    cache: false
+    mode: HTML
+    suffix: .html
+    prefix: classpath:/templates/
+  servlet:
+    multipart:
+      max-request-size: 20MB
+      max-file-size: 5MB
+      enabled: true
+      location: /tmp/xunwu/images/
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: xunwu
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      cluster-name: my-application
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  session:
+    store-type: redis
+  mail:
+    host: smtp.163.com
+    username: flyzfq@163.com
+    password: wali123
+    properties:
+      mail:
+        smtp:
+          auth=true: true
+  main:
+    allow-bean-definition-overriding: true
+server:
+  error:
+    whitelabel:
+      enabled: false
+qiniu:
+  AccessKey: GVD-MVQEoOiJOt7yNBDo-JrOKWHB33eZN2JmDFC6
+  SecretKey: sHnl57ZXtStejn7GgY5VF3lnm1CxMJ3hcayexAWz
+  Bucket: lakers
+  cdn:
+    prefix: http://7xo6gy.com1.z0.glb.clouddn.com/
+aliyun:
+  sms:
+    accessKey: LTAISjYxxr5qLmio
+    accessKeySecret: pkqEMJIcVQV8G5fkNEQNDQV7rsntKV
+    template:
+      code: SMS_95590008
+debug: true

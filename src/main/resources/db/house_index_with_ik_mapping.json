@@ -1,0 +1,84 @@
+{
+  "settings": {
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "house": {
+      "dynamic": false,
+      "properties": {
+        "houseId": {
+          "type": "long"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "ik_smart",
+          "search_analyzer": "ik_smart"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "area": {
+          "type": "integer"
+        },
+        "createTime": {
+          "type": "date"
+
+        },
+        "lastUpdateTime": {
+          "type": "date"
+
+        },
+        "cityEnName": {
+          "type": "keyword"
+        },
+        "regionEnName": {
+          "type": "keyword"
+        },
+        "direction": {
+          "type": "integer"
+        },
+        "distanceToSubway": {
+          "type": "integer"
+        },
+        "subwayLineName": {
+          "type": "keyword"
+        },
+        "subwayStationName": {
+          "type": "keyword"
+        },
+        "tags": {
+          "type": "text"
+        },
+        "street": {
+          "type": "keyword"
+        },
+        "district": {
+          "type": "keyword"
+        },
+        "description": {
+          "type": "text",
+          "analyzer": "ik_smart",
+          "search_analyzer": "ik_smart"
+        },
+        "layoutDesc" : {
+          "type": "text",
+          "analyzer": "ik_smart",
+          "search_analyzer": "ik_smart"
+        },
+        "traffic": {
+          "type": "text",
+          "analyzer": "ik_smart",
+          "search_analyzer": "ik_smart"
+        },
+        "roundService": {
+          "type": "text",
+          "analyzer": "ik_smart",
+          "search_analyzer": "ik_smart"
+        },
+        "rentWay": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
