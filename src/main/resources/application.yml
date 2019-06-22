@@ -52,6 +52,7 @@ server:
   error:
     whitelabel:
       enabled: false
+  port: 8081
 qiniu:
   AccessKey: GVD-MVQEoOiJOt7yNBDo-JrOKWHB33eZN2JmDFC6
   SecretKey: sHnl57ZXtStejn7GgY5VF3lnm1CxMJ3hcayexAWz

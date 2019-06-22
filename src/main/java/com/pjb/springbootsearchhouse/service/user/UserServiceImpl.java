@@ -1,18 +1,5 @@
 package com.pjb.springbootsearchhouse.service.user;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.DisabledException;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.google.common.collect.Lists;
 import com.pjb.springbootsearchhouse.base.LoginUserUtil;
 import com.pjb.springbootsearchhouse.entity.Role;
@@ -22,6 +9,18 @@ import com.pjb.springbootsearchhouse.repository.UserRepository;
 import com.pjb.springbootsearchhouse.service.IUserService;
 import com.pjb.springbootsearchhouse.service.ServiceResult;
 import com.pjb.springbootsearchhouse.web.dto.UserDTO;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -29,7 +28,7 @@ public class UserServiceImpl implements IUserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final ModelMapper modelMapper;
-    private final Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
+    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, ModelMapper modelMapper) {
@@ -111,7 +110,7 @@ public class UserServiceImpl implements IUserService {
                 userRepository.updateEmail(userId, value);
                 break;
             case "password":
-                userRepository.updatePassword(userId, this.passwordEncoder.encodePassword(value, userId));
+                userRepository.updatePassword(userId, this.bCryptPasswordEncoder.encode(value));
                 break;
             default:
                 return new ServiceResult(false, "不支持的属性");
